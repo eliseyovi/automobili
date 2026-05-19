@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Электро vs Гибрид — Физика Автомобиля</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- NOISE -->
+  <div class="noise"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-logo">ФизАвто<span>·26</span></div>
+    <ul class="nav-links">
+      <li><a href="#theory">Теория</a></li>
+      <li><a href="#cars">Автомобили</a></li>
+      <li><a href="#compare">Сравнение</a></li>
+      <li><a href="#charts">Графики</a></li>
+      <li><a href="#advisor">Выбор</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#theory" class="mm-link">Теория</a></li>
+      <li><a href="#cars" class="mm-link">Автомобили</a></li>
+      <li><a href="#compare" class="mm-link">Сравнение</a></li>
+      <li><a href="#charts" class="mm-link">Графики</a></li>
+      <li><a href="#advisor" class="mm-link">Выбор</a></li>
+    </ul>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Учебный проект по физике · 2026</div>
+      <h1 class="hero-title">
+        <span class="line el-text" data-text="Электро">Электро</span>
+        <span class="line accent" data-text="vs">vs</span>
+        <span class="line hyb-text" data-text="Гибрид">Гибрид</span>
+      </h1>
+      <p class="hero-sub">Сравнительная характеристика электромобилей и гибридных автомобилей<br/>— принципы работы, технические данные, физика движения</p>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num electric-text">8</span><span>электромобилей</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num hybrid-text">7</span><span>гибридов</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-num">15</span><span>моделей</span></div>
+      </div>
+      <a href="#cars" class="hero-cta">
+        <span>Исследовать</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+    <div class="scroll-hint"><span></span></div>
+  </header>
+
+  <!-- ─── THEORY ─── -->
+  <section class="theory" id="theory">
+    <div class="section-label">/ 01 — Теория</div>
+    <h2 class="section-title">Физика<br/><em>в основе</em></h2>
+    <div class="theory-grid">
+      <div class="theory-card reveal">
+        <div class="theory-icon electric-icon">⚡</div>
+        <h3>Электродвигатель</h3>
+        <p>Устройство, преобразующее электрическую энергию в механическую. Работа основана на взаимодействии тока и магнитного поля. КПД достигает <strong class="electric-text">90–95%</strong> — кратно выше ДВС.</p>
+        <div class="theory-detail">
+          <div class="td-row"><span class="td-label">Статор</span><span>Неподвижная часть, создаёт магнитное поле</span></div>
+          <div class="td-row"><span class="td-label">Ротор</span><span>Вращающаяся часть двигателя</span></div>
+          <div class="td-row"><span class="td-label">Инвертор</span><span>Преобразует DC→AC для управления</span></div>
+          <div class="td-row"><span class="td-label">Рекуперация</span><span>Возврат энергии при торможении</span></div>
+        </div>
+      </div>
+      <div class="theory-card reveal" style="transition-delay:0.1s">
+        <div class="theory-icon hybrid-icon">♻</div>
+        <h3>Гибридный двигатель</h3>
+        <p>Сочетает ДВС и электромотор. На малых скоростях — электротяга, на высоких — ДВС, при ускорении — оба одновременно. Управление полностью автоматическое.</p>
+        <div class="theory-detail">
+          <div class="td-row"><span class="td-label hybrid-label">Послед.</span><span>ДВС только генератор, колёса — электро</span></div>
+          <div class="td-row"><span class="td-label hybrid-label">Парал.</span><span>Оба передают мощность на колёса</span></div>
+          <div class="td-row"><span class="td-label hybrid-label">Послед-пар.</span><span>Комбинация — наиболее эффективна</span></div>
+          <div class="td-row"><span class="td-label hybrid-label">Цикл Аткинсона</span><span>КПД ДВС до 41%</span></div>
+        </div>
+      </div>
+      <div class="theory-card reveal" style="transition-delay:0.2s">
+        <div class="theory-icon kpd-icon">📐</div>
+        <h3>КПД и физика</h3>
+        <p>Коэффициент полезного действия — ключевой физический показатель. Электромоторы превосходят ДВС в 2–3 раза, что напрямую влияет на стоимость километра.</p>
+        <div class="kpd-bars">
+          <div class="kpd-bar-row">
+            <span>Электромотор</span>
+            <div class="kpd-bar-wrap"><div class="kpd-bar electric-bar" style="width:92%"><span>92%</span></div></div>
+          </div>
+          <div class="kpd-bar-row">
+            <span>Цикл Аткинсона</span>
+            <div class="kpd-bar-wrap"><div class="kpd-bar hybrid-bar" style="width:41%"><span>41%</span></div></div>
+          </div>
+          <div class="kpd-bar-row">
+            <span>Обычный ДВС</span>
+            <div class="kpd-bar-wrap"><div class="kpd-bar petrol-bar" style="width:30%"><span>30%</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CARS SECTION ─── -->
+  <section class="cars" id="cars">
+    <div class="section-label">/ 02 — Автомобили</div>
+    <h2 class="section-title">15 моделей.<br/><em>Один анализ.</em></h2>
+
+    <!-- FILTER + SEARCH -->
+    <div class="cars-controls">
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Все <span class="fbadge">15</span></button>
+        <button class="filter-btn" data-filter="electric">⚡ Электро <span class="fbadge">8</span></button>
+        <button class="filter-btn" data-filter="hybrid">♻ Гибрид <span class="fbadge">7</span></button>
+      </div>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input type="text" id="carSearch" placeholder="Поиск по названию…" autocomplete="off"/>
+      </div>
+    </div>
+
+    <div class="cars-grid" id="carsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+    <div class="no-results" id="noResults" style="display:none">
+      <span>😔</span><p>Ничего не найдено</p>
+    </div>
+  </section>
+
+  <!-- ─── COMPARE TABLE ─── -->
+  <section class="compare" id="compare">
+    <div class="section-label">/ 03 — Сравнительная таблица</div>
+    <h2 class="section-title">Физика<br/><em>в цифрах</em></h2>
+    <div class="table-controls">
+      <button class="sort-btn active" data-sort="default">По умолчанию</button>
+      <button class="sort-btn" data-sort="range">Запас хода ↕</button>
+      <button class="sort-btn" data-sort="power">Мощность ↕</button>
+    </div>
+    <div class="table-glass">
+      <div class="table-scroll">
+        <table class="compare-table" id="compareTable">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Автомобиль</th>
+              <th>Тип</th>
+              <th>Запас хода</th>
+              <th>Мощность</th>
+              <th>Зарядка / Расход</th>
+              <th>Особенности</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody">
+            <!-- Injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="table-legend">
+      <span class="legend-el">⚡ Электромобиль</span>
+      <span class="legend-hyb">♻ Гибрид</span>
+      <span class="legend-best">🏆 Лучший показатель</span>
+    </div>
+  </section>
+
+  <!-- ─── CHARTS ─── -->
+  <section class="charts-section" id="charts">
+    <div class="section-label">/ 04 — Графики</div>
+    <h2 class="section-title">Визуальный<br/><em>анализ</em></h2>
+    <div class="charts-grid">
+      <div class="chart-card reveal">
+        <div class="chart-title">Запас хода (км)</div>
+        <canvas id="rangeChart"></canvas>
+      </div>
+      <div class="chart-card reveal" style="transition-delay:0.15s">
+        <div class="chart-title">Мощность (л.с.)</div>
+        <canvas id="powerChart"></canvas>
+      </div>
+      <div class="chart-card chart-wide reveal" style="transition-delay:0.1s">
+        <div class="chart-title">КПД двигателей: сравнение типов</div>
+        <canvas id="kpdChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ADVISOR ─── -->
+  <section class="advisor" id="advisor">
+    <div class="section-label">/ 05 — Советник</div>
+    <h2 class="section-title">Что выбрать<br/><em>именно вам?</em></h2>
+
+    <div class="quiz-wrap" id="quizWrap">
+      <div class="quiz-card" id="quizCard">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <div class="quiz-step-label" id="quizStepLabel">Вопрос 1 / 4</div>
+        <div class="quiz-question" id="quizQuestion">Где вы в основном ездите?</div>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+      <div class="quiz-result" id="quizResult" style="display:none">
+        <div class="qr-icon" id="qrIcon">⚡</div>
+        <h3 id="qrTitle">Вам подходит электромобиль!</h3>
+        <p id="qrText"></p>
+        <div class="qr-cars" id="qrCars"></div>
+        <button class="quiz-restart" id="quizRestart">← Пройти заново</button>
+      </div>
+    </div>
+
+    <div class="advisor-grid">
+      <div class="advisor-card electric-adv reveal">
+        <div class="adv-badge electric-badge">⚡</div>
+        <h3>Выберите электромобиль, если…</h3>
+        <ul>
+          <li>Преимущественно городские поездки</li>
+          <li>Есть зарядка дома или на работе</li>
+          <li>Важна экологичность</li>
+          <li>Хотите минимальные расходы на ТО</li>
+          <li>Маршруты до 300–500 км в день</li>
+          <li>Развитая зарядная инфраструктура</li>
+        </ul>
+        <div class="adv-verdict electric-verdict">Идеален для города</div>
+      </div>
+      <div class="advisor-card hybrid-adv reveal" style="transition-delay:0.15s">
+        <div class="adv-badge hybrid-badge">♻</div>
+        <h3>Выберите гибрид, если…</h3>
+        <ul>
+          <li>Частые дальние поездки</li>
+          <li>Нет доступа к зарядкам</li>
+          <li>Поездки в отдалённые районы</li>
+          <li>Важна независимость от инфраструктуры</li>
+          <li>Нужна привычная дозаправка на АЗС</li>
+          <li>Холодный климат (Россия)</li>
+        </ul>
+        <div class="adv-verdict hybrid-verdict">Идеален для трасс</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HISTORY ─── -->
+  <section class="history-section" id="history">
+    <div class="section-label">/ 06 — История</div>
+    <h2 class="section-title">От Фарадея<br/><em>до Tesla</em></h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot electric-dot"></div>
+        <div class="tl-year">1821</div>
+        <div class="tl-content">
+          <strong>Майкл Фарадей</strong>
+          <p>Доказал, что электрический ток вызывает движение в магнитном поле — основа электродвигателя.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.05s">
+        <div class="tl-dot electric-dot"></div>
+        <div class="tl-year">1830е</div>
+        <div class="tl-content">
+          <strong>Борис Якоби</strong>
+          <p>Создал первые рабочие модели электродвигателя. Никола Тесла разработал двигатель переменного тока.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.1s">
+        <div class="tl-dot hybrid-dot"></div>
+        <div class="tl-year">1900</div>
+        <div class="tl-content">
+          <strong>Фердинанд Порше</strong>
+          <p>Создал один из первых гибридных автомобилей — Lohner-Porsche с электромотором в колёсах и ДВС-генератором.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.15s">
+        <div class="tl-dot hybrid-dot"></div>
+        <div class="tl-year">1997</div>
+        <div class="tl-content">
+          <strong>Toyota Prius</strong>
+          <p>Первый массовый гибридный автомобиль. Положил начало эпохе экологичного транспорта.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.2s">
+        <div class="tl-dot electric-dot"></div>
+        <div class="tl-year">2012</div>
+        <div class="tl-content">
+          <strong>Tesla Model S</strong>
+          <p>Революция в индустрии — электромобиль с запасом хода 600 км и разгоном до 100 км/ч за 2.1 сек.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.25s">
+        <div class="tl-dot electric-dot"></div>
+        <div class="tl-year">2026</div>
+        <div class="tl-content">
+          <strong>Сегодня</strong>
+          <p>Рынок электромобилей и гибридов активно растёт. Выбросы снижаются, технологии совершенствуются.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ФизАвто<span>·26</span></div>
+      <p>Учебный проект по физике</p>
+      <p class="footer-author">Автор: Савченко Арсений Алексеевич, 10 Б класс</p>
+      <p class="footer-note">Научный руководитель: Расникова Елена Николаевна</p>
+      <p class="footer-school">МОУ «СШ № 52», г. Ярославль · 2025–2026 уч. год</p>
+    </div>
+  </footer>
+
+  <!-- ─── MODAL ─── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-glass" id="modal">
+      <button class="modal-close" id="modalClose">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
